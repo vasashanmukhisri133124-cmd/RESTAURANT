@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
+const JWT_SECRET = process.env.JWT_SECRET || 'restaurant-app-super-secret-jwt-key-2024';
+
 // Generate JWT token
 const generateToken = (id, role) => {
-    return jwt.sign({ id, role }, process.env.JWT_SECRET, {
+    return jwt.sign({ id, role }, JWT_SECRET, {
         expiresIn: '30d',
     });
 };
