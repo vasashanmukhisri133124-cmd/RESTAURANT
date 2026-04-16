@@ -9,7 +9,9 @@ import menuRoutes from './routes/menuRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import reservationRoutes from './routes/reservationRoutes.js';
 
-dotenv.config();
+// Load environment variables from v0 sandbox path or local .env
+dotenv.config({ path: '/vercel/share/.env.project' });
+dotenv.config(); // Also try local .env as fallback
 
 connectDB();
 
